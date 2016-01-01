@@ -1,0 +1,35 @@
+Admin login (root/sanket1234)
+
+Django version,
+Django==1.9
+
+With runserver,
+
+$ # DEBUG = True
+$ curl 127.0.0.1:8000/features
+$ curl -I 127.0.0.1:8000/features
+HTTP/1.0 301 Moved Permanently
+Date: Fri, 01 Jan 2016 19:16:14 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Content-Type: text/html; charset=utf-8
+Location: /features/
+
+$ curl 127.0.0.1:8000/features/
+Feature URL response
+
+
+$ # DEBUG = False and APPEND_SLASH = False
+$ curl 127.0.0.1:8000/features/
+Feature URL response
+$ curl 127.0.0.1:8000/features
+404
+
+
+$ # DEBUG = False and APPEND_SLASH = True
+$ curl 127.0.0.1:8000/features
+404
+$ curl 127.0.0.1:8000/features/
+Feature URL response
+
+Ticket:
+https://code.djangoproject.com/ticket/25878
